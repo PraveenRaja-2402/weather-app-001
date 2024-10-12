@@ -4,6 +4,9 @@ const hbs = require("hbs");
 const app = express();
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
+const cors = require('cors');
+app.use(cors());
+
 
 //Define path for for express engine
 const publicdirectoryPath = path.join(__dirname, "../public");
@@ -102,7 +105,7 @@ app.get("*", (req, res) => {
 });
 
 //port listenner
-app.listen(3000, () => {
+app.listen(3000,'0.0.0.0' ,() => {
   console.log("Server is up on port 3000.");
   console.log("Server is working");
 });
